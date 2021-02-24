@@ -2,11 +2,15 @@
   "name": "react-native-gifted-chat",
   "version": "0.16.3",
   "description": "The most complete chat UI for React Native",
-  "main": "node_modules/expo/AppEntry.js",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
   "types": "lib/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FaridSafi/react-native-gifted-chat.git"
+    "url": "git+https://github.com/gtechnologies/react-native-gifted-chat.git"
   },
   "keywords": [
     "android",
@@ -38,7 +42,8 @@
     "test:coverage": "TZ=Europe/Paris jest --coverage",
     "prepublishOnly": "yarn lint && yarn build && yarn test && yarn config:npm",
     "postpublish": "yarn config:dev",
-    "prettier": "./node_modules/.bin/prettier --write \"src/**/*.{ts,tsx}\""
+    "prettier": "./node_modules/.bin/prettier --write \"src/**/*.{ts,tsx}\"",
+    "prepare": "npm run build"
   },
   "jest": {
     "preset": "react-native",
