@@ -20,9 +20,13 @@ This repo resolves the issues with the latest versions of Gifted Chat for web by
 
 ## Getting Started
 
-`npm i https://github.com/gtechnologies/react-native-gifted-chat`
+`npm i git+https://github.com/gtechnologies/react-native-gifted-chat.git`
 
 Use Gifted Chat in your React app as you would in a React Native app. Documentation can be found [here](https://github.com/FaridSafi/react-native-gifted-chat).
+
+## Known Issues
+
+This package takes a very long time to install for yet-to-be-determined reasons.
 
 ## Warnings
 
