@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { Animated, StyleSheet } from 'react-native'
-import { TypingAnimation } from 'react-native-typing-animation'
+import { Animated, StyleSheet, View } from 'react-native'
 import { useUpdateLayoutEffect } from './hooks/useUpdateLayoutEffect'
 import Color from './Color'
 
@@ -82,11 +81,12 @@ const TypingIndicator = ({ isTyping }: Props) => {
       ]}
     >
       {isTyping ? (
-        <TypingAnimation
+        <View
           style={{ marginLeft: 6, marginTop: 7.2 }}
-          dotRadius={4}
-          dotMargin={5.5}
-          dotColor={'rgba(0, 0, 0, 0.38)'}
+          // TODO: improve this for typing, was changed from TypingAnimation of react-native-typing-animation
+          // dotRadius={4}
+          // dotMargin={5.5}
+          // dotColor={'rgba(0, 0, 0, 0.38)'}
         />
       ) : null}
     </Animated.View>

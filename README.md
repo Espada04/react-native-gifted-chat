@@ -1,3 +1,33 @@
+# React Native Web fork of Gifted Chat
+
+This is a fork of [react-native-gifted-chat](https://github.com/FaridSafi/react-native-gifted-chat) designed to run on web.
+
+## Reason for Fork
+
+Since version [0.10.0](https://github.com/gtechnologies/react-native-gifted-chat#react-native-web), Gifted Chat was designed to support [react-native-web](https://github.com/necolas/react-native-web).
+
+### Issues with current version
+
+In recent versions, the introduction of TypingAnimation from [react-native-typing-animation](https://github.com/watadarkstar/react-native-typing-animation) has resulted in some errors when running Gifted Chat on React web. It will error out with `Support for the experimental syntax 'jsx' isn't currently enabled` and recommend `Add @babel/plugin-transform-react-jsx (https://git.io/vb4yd) to the 'plugins' section of your Babel config to enable transformation.`. Our team has thus far not been able to get these to run properly.
+
+### Issues with earlier versions
+
+Reverting back to an earlier version of Gifted Chat (`0.10.0-beta.web.26`) as shown in [gifted-chat-web-demo](https://github.com/xcarpentier/gifted-chat-web-demo) introduced some [issues](https://github.com/FaridSafi/react-native-gifted-chat/issues/1683) relating to `ViewPropTypes`. Specifically, version `0.10.0-beta.web.26` is dependent on an outdated version of react-native-web which has since [deprecated ViewPropTypes](https://github.com/necolas/react-native-web/issues/1537) in version [`0.12.0`](https://github.com/necolas/react-native-web/releases/tag/0.12.0) for consistency that change in React Native. If you use react-native-web in any other capacity, you should not resort to pointing to an earlier release of react-native-web.
+
+### Our Solution
+
+This repo resolves the issues with the latest versions of Gifted Chat for web by removing references to react-native-typing-animation.
+
+## Getting Started
+
+`npm i https://github.com/gtechnologies/react-native-gifted-chat`
+
+Use Gifted Chat in your React app as you would in a React Native app. Documentation can be found [here](https://github.com/FaridSafi/react-native-gifted-chat).
+
+## Warnings
+
+This repo will not be actively maintained and is just meant to be used as a temporary solution until [react-native-gifted-chat](https://github.com/FaridSafi/react-native-gifted-chat) resolves React on web issues.
+
 <p align="center" >
 <p align="center" >
    <a href="https://reactnative.gallery/FaridSafi/gifted-chat">
@@ -80,12 +110,14 @@
   </p>
 </p>
 
-## The future of GiftedChat 🎉 
+## The future of GiftedChat 🎉
+
 Please give us your advice: [Related PR](https://github.com/FaridSafi/react-native-gifted-chat/pull/1775)
 
 ## Please vote
 
 **GiftedChat** depends on other packages and some needs a boost, please vote for PRs will improve it, thanks:
+
 - https://github.com/watadarkstar/react-native-typing-animation/issues/18
 
 ## Features
@@ -136,7 +168,7 @@ import React, { useState, useCallback, useEffect } from 'react'
 import { GiftedChat } from 'react-native-gifted-chat'
 
 export function Example() {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([])
 
   useEffect(() => {
     setMessages([
@@ -154,7 +186,9 @@ export function Example() {
   }, [])
 
   const onSend = useCallback((messages = []) => {
-    setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
+    setMessages(previousMessages =>
+      GiftedChat.append(previousMessages, messages),
+    )
   }, [])
 
   return (
